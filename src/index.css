@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar for all browsers */
+.marquee::-webkit-scrollbar {
+  display: none;
+}
+.marquee {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Marquee animation for infinite horizontal scroll */
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+.marquee-logo-card {
+  background: rgba(255, 220, 133, 0.514);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  padding: 1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  min-height: 80px;
+  margin: 0;
+}
+.marquee-logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  transition: filter 0.3s;
+}
+.marquee-logo:hover {
+  filter: grayscale(0);
+}
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 640px) {
+  .marquee-logo-card {
+    padding: 0.5rem 1rem;
+    min-width: 100px;
+    min-height: 48px;
+  }
+  .marquee-logo {
+    height: 40px;
+  }
+  .marquee-track {
+    gap: 1.5rem;
+  }
+}
