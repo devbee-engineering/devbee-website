@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion, useInView } from 'framer-motion';
+import { AnimatePresence, motion,} from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -14,21 +14,46 @@ import BlogList from './pages/BlogList';
 import BlogDetail from './pages/BlogDetail';
 import ScrollToTop from './components/ScrollToTop';
 import Loader from './components/Loader';
+import Academy from './pages/Academy';
 
 const navOrder = [
   '/',
   '/about',
   '/services',
+  '/academy',
   '/expertise',
   '/blog',
   '/contact',
 ];
 
-function AnimatedPage({ children, direction }) {
+function AnimatedPage({ children, direction }: { children: React.ReactNode; direction: 'left' | 'right' }) {
   const slideVariants = {
     hidden: direction === 'right' ? { opacity: 0, x: 80 } : { opacity: 0, x: -80 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeInOut' } },
-    exit: direction === 'right' ? { opacity: 0, x: -80, transition: { duration: 0.4, ease: 'easeInOut' } } : { opacity: 0, x: 80, transition: { duration: 0.4, ease: 'easeInOut' } },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        duration: 0.6, 
+        ease: [0.4, 0, 0.2, 1] as const
+      } 
+    },
+    exit: direction === 'right' 
+      ? { 
+          opacity: 0, 
+          x: -80, 
+          transition: { 
+            duration: 0.4, 
+            ease: [0.4, 0, 0.2, 1] as const
+          } 
+        } 
+      : { 
+          opacity: 0, 
+          x: 80, 
+          transition: { 
+            duration: 0.4, 
+            ease: [0.4, 0, 0.2, 1] as const
+          } 
+        },
   };
   return (
     <motion.div
@@ -43,24 +68,24 @@ function AnimatedPage({ children, direction }) {
   );
 }
 
-function ScrollFadeIn({ children }: { children: React.ReactNode }) {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] } } : {}}
-    >
-      {children}
-    </motion.div>
-  );
-}
+// function ScrollFadeIn({ children }: { children: React.ReactNode }) {
+//   const ref = React.useRef(null);
+//   const isInView = useInView(ref, { once: true, amount: 0.3 });
+//   return (
+//     <motion.div
+//       ref={ref}
+//       initial={{ opacity: 0, y: 40 }}
+//       animate={isInView ? { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] } } : {}}
+//     >
+//       {children}
+//     </motion.div>
+//   );
+// }
 
 function App() {
   const location = useLocation();
   const prevPath = useRef(location.pathname);
-  const [direction, setDirection] = useState('right');
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -89,6 +114,7 @@ function App() {
                 <Route path="/" element={<AnimatedPage direction={direction}><Home /></AnimatedPage>} />
                 <Route path="/about" element={<AnimatedPage direction={direction}><About /></AnimatedPage>} />
                 <Route path="/services" element={<AnimatedPage direction={direction}><Services /></AnimatedPage>} />
+                <Route path="/academy" element={<AnimatedPage direction={direction}><Academy /></AnimatedPage>} />
                 <Route path="/expertise" element={<AnimatedPage direction={direction}><Expertise /></AnimatedPage>} />
                 <Route path="/contact" element={<AnimatedPage direction={direction}><Contact /></AnimatedPage>} />
                 <Route path="/terms" element={<AnimatedPage direction={direction}><Terms /></AnimatedPage>} />
