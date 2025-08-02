@@ -1,4 +1,3 @@
-import React from 'react';
 import { Code, Smartphone,  Cloud,  Shield, Zap,  Layout, Server, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ScrollFadeIn from '../components/ScrollFadeIn';

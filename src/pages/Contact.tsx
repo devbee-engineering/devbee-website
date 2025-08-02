@@ -2,6 +2,19 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import Swal from 'sweetalert2';
 
+// type FormData = {
+//     name: string;
+//     email: string;
+//     subject: string;
+//     message: string;
+//   };
+
+  type FormErrors = {
+    name?: string;
+    email?: string;
+    subject?: string;
+    message?: string;
+  };
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -9,17 +22,19 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
+  
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
     // Clear error when user starts typing
-    if (errors[name]) {
+    if ((errors as FormErrors)[name as keyof FormErrors]) {
       setErrors(prev => ({
         ...prev,
         [name]: ''
@@ -27,8 +42,8 @@ const Contact = () => {
     }
   };
 
-  const validateForm = () => {
-    const newErrors = {};
+  const validateForm = (): FormErrors => {
+    const newErrors: FormErrors = {};
     
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
@@ -51,7 +66,7 @@ const Contact = () => {
     return newErrors;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const newErrors = validateForm();
 
@@ -106,7 +121,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Address</h3>
-                    <p className="text-gray-600">  DevBee Inc., <br />29A RS PLAZA Kuniamuthur,<br /> Coimbatore -  641008</p>
+                    <p className="text-gray-600">  DevBee Inc., <br />29A RS PLAZA Kuniamuthur,<br /> Coimbatore - 641008</p>
                   </div>
                 </div>
                 
@@ -150,7 +165,7 @@ const Contact = () => {
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
-                    allowFullScreen=""
+                    allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="rounded-lg"

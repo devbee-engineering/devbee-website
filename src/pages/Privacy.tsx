@@ -1,4 +1,3 @@
-import React from 'react';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 
 const Privacy = () => {
