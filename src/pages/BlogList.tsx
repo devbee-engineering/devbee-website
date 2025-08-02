@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import blogs from "../data/blogs";
 import ScrollFadeIn from '../components/ScrollFadeIn';

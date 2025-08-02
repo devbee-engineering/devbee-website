@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams, Link } from "react-router-dom";
 import blogs from "../data/blogs";
 import ScrollFadeIn from '../components/ScrollFadeIn';
@@ -44,7 +43,7 @@ const BlogDetail = () => {
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <img src={blog.image} alt={blog.title} className="w-full h-64 object-cover rounded-lg mb-8" />
           <h1 className="text-4xl font-bold text-gray-900 mb-4">{blog.title}</h1>
-          <div className="text-gray-400 text-sm mb-6">{blog.date}</div>
+          {/* <div className="text-gray-400 text-sm mb-6">{blog.date}</div> */}
           <div className="text-lg text-gray-700 mb-8">{blog.summary}</div>
           <div className="prose prose-lg max-w-none text-gray-800" dangerouslySetInnerHTML={{ __html: blog.fullContent.replace(/\n/g, '<br/>') }} />
           <div className="mt-8">

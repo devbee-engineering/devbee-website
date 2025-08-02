@@ -142,9 +142,9 @@ const Expertise = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {industries.map((industry, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{industry.name}</h3>
+                  <h3 className="text-xl font-semiindustrybold text-gray-900 mb-3">{industry.name}</h3>
                   <p className="text-gray-600 mb-4">{industry.description}</p>
-                  <div className="text-yellow-600 font-semibold">{industry.projects}</div>
+                  {/* <div className="text-yellow-600 font-semibold">{.projects}</div> */}
                 </div>
               ))}
             </div>

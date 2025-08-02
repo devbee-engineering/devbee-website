@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <img src="/devbee/Devbee.png" alt="DevBee Inc." className="h-8 w-auto" />
+              <img src="/public/Devbee.png" alt="DevBee Inc." className="h-8 w-auto" />
            
             </div>
             <p className="text-gray-300 text-sm">

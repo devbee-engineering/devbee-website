@@ -1,5 +1,4 @@
-import React from 'react';
-import { Users, Target, Eye, Award, CheckCircle } from 'lucide-react';
+import {  Target, Eye, Award, CheckCircle } from 'lucide-react';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 
 const About = () => {
@@ -7,27 +6,27 @@ const About = () => {
     {
       name: 'Abuthair Mohammed Rafiq',
       role: 'CEO & Founder',
-      image: '/devbee/abpfp.png',
+      image: '/public/abpfp.png',
       description: 'Visionary leader with 15+ years in software development and business strategy.'
     },
     {
       name: 'Fasil Marshooq',
       role: 'Co-Founder & COO',
-      image: '/devbee/fasil.webp',
+      image: '/public/fasil.webp',
       description: 'Technical expert specializing in AI, cloud architecture, and scalable systems.'
     },
     {
       name: 'Musthak Ahamed',
       role: 'Lead Developer',
-      image: '/devbee/mus.png',
+      image: '/public/mus.png',
       description: 'Full-stack developer with expertise in modern web and mobile technologies.'
     },
-    {
-      name: 'Thowfeeq ahmad',
-      role: 'UI/UX Designer',
-      image: '/devbee/pfp.webp',
-      description: 'Creative designer focused on user-centered design and digital experiences.'
-    }
+    // {
+    //   name: 'Thowfeeq ahmad',
+    //   role: 'UI/UX Designer',
+    //   image: '/devbee/pfp.webp',
+    //   description: 'Creative designer focused on user-centered design and digital experiences.'
+    // }
   ];
 
   const whyChooseUs = [
@@ -139,17 +138,17 @@ const About = () => {
                 exceptional software solutions.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
               {team.map((member, index) => (
-                <div key={index} className="text-center">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                  />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
-                  <p className="text-yellow-600 font-medium mb-3">{member.role}</p>
-                  <p className="text-gray-600 text-sm">{member.description}</p>
+                <div key={index} className="text-center max-w-xs">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
+                <p className="text-yellow-600 font-medium mb-3">{member.role}</p>
+                <p className="text-gray-600 text-sm">{member.description}</p>
                 </div>
               ))}
             </div>
