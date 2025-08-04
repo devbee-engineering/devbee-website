@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
 import { SiWhatsapp } from 'react-icons/si';
