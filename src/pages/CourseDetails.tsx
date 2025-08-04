@@ -818,10 +818,179 @@ const CourseDetails = () => {
                 </div>
               </div>
             )}
-            </div>
+
+            {/* Projects Tab */}
+            {activeTab === 'projects' && (
+              <div>
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Build <span className="text-yellow-600">Real-World Projects</span>
+                  </h2>
+                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Gain hands-on experience by building projects that showcase your skills to potential employers.
+                  </p>
+                  <div className="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {currentCourse.modules.map((module) => (
+                    <div key={module.id} className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <div className="flex items-center mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-full flex items-center justify-center font-bold mr-3 shadow-lg">
+                          {module.id}
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900">{module.project}</h3>
+                      </div>
+                      <p className="text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
+                        <span className="font-semibold">Module:</span> {module.title}
+                      </p>
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-gray-900 flex items-center">
+                          <svg className="w-5 h-5 mr-2 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                          </svg>
+                          Key Features:
+                        </h4>
+                        <ul className="text-sm text-gray-600 space-y-2">
+                          {Array.isArray(module.topics) ? 
+                            module.topics.slice(0, 3).map((topic, topicIndex) => (
+                              <li key={topicIndex} className="flex items-center p-2 bg-yellow-50 rounded-lg">
+                                <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mr-2"></span>
+                                {typeof topic === 'string' ? topic : topic.title}
+                              </li>
+                            )) :
+                            'topicsWithDetails' in module && module.topicsWithDetails ? 
+                              module.topicsWithDetails.slice(0, 3).map((topic, topicIndex) => (
+                                <li key={topicIndex} className="flex items-center p-2 bg-yellow-50 rounded-lg">
+                                  <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mr-2"></span>
+                                  {topic.title}
+                                </li>
+                              )) : null
+                          }
+                        </ul>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-gray-200">
+                        <span className="inline-flex items-center bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-800 text-xs px-3 py-1 rounded-full font-medium">
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                          </svg>
+                          Portfolio Ready
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Career Paths Tab */}
+            {activeTab === 'career' && (
+              <div>
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    <span className="text-yellow-600">Career Opportunities</span>
+                  </h2>
+                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                    {currentCourse.title} professionals are in high demand. Here are the career paths you can pursue.
+                  </p>
+                  <div className="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                  {currentCourse.careerPaths?.map((career, index) => (
+                    <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200">
+                      <div className="text-center">
+                        <div className="w-16 h-16 bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0H8" />
+                          </svg>
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">{career.role}</h3>
+                        <div className="text-3xl font-bold text-green-600 mb-3">{career.salary}</div>
+                        <p className="text-gray-600 text-sm leading-relaxed">{career.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Placement Support */}
+                <div className="bg-gradient-to-r from-yellow-600 to-orange-500 text-white p-8 rounded-xl shadow-xl">
+                  <h3 className="text-2xl font-bold mb-6 text-center flex items-center justify-center">
+                    <svg className="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Placement Support
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
+                      <div className="flex justify-center mb-3">
+                        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <h4 className="font-bold mb-2">Resume Building</h4>
+                      <p className="text-sm opacity-90">Professional resume review and optimization</p>
+                    </div>
+                    <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
+                      <div className="flex justify-center mb-3">
+                        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                      </div>
+                      <h4 className="font-bold mb-2">Mock Interviews</h4>
+                      <p className="text-sm opacity-90">Practice with real interview scenarios</p>
+                    </div>
+                    <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
+                      <div className="flex justify-center mb-3">
+                        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                      </div>
+                      <h4 className="font-bold mb-2">Job Referrals</h4>
+                      <p className="text-sm opacity-90">Direct connections to hiring partners</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+          </div>
         </section>
       </ScrollFadeIn>
-    
+
+      {/* CTA Section */}
+      <ScrollFadeIn>
+        <section className="py-16 bg-gradient-to-r from-yellow-600 to-orange-500">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <svg className="w-10 h-10 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Ready to Start Your Journey?
+            </h2>
+            <p className="text-xl text-yellow-100 mb-8 max-w-3xl mx-auto">
+              Join thousands of students who have successfully launched their tech careers with DevBee Academy.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => setShowEnrollModal(true)}
+                className="bg-white text-yellow-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                Enroll Now - {currentCourse.price}
+              </button>
+              <a
+                href="tel:+919876543210"
+                className="border-2 border-white text-white hover:bg-white hover:text-yellow-600 px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center justify-center"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3l2 5-2.5 1.5a11 11 0 0011 11L18 17l5 2v3a2 2 0 01-2 2h-1C10.954 23 1 13.046 1 3V2a2 2 0 012-2z" />
+                </svg>
+                Talk to Counsellor
+              </a>
+            </div>
+          </div>
+        </section>
+      </ScrollFadeIn>
 
       {/* Syllabus Download Modal */}
       {showSyllabusModal && (
