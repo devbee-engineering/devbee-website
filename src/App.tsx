@@ -15,6 +15,7 @@ import BlogDetail from './pages/BlogDetail';
 import ScrollToTop from './components/ScrollToTop';
 import Loader from './components/Loader';
 import Academy from './pages/Academy';
+import CourseDetails from './pages/CourseDetails';
 
 const navOrder = [
   '/',
@@ -115,6 +116,7 @@ function App() {
                 <Route path="/about" element={<AnimatedPage direction={direction}><About /></AnimatedPage>} />
                 <Route path="/services" element={<AnimatedPage direction={direction}><Services /></AnimatedPage>} />
                 <Route path="/academy" element={<AnimatedPage direction={direction}><Academy /></AnimatedPage>} />
+                <Route path="/course-details" element={<AnimatedPage direction={direction}><CourseDetails /></AnimatedPage>} />
                 <Route path="/expertise" element={<AnimatedPage direction={direction}><Expertise /></AnimatedPage>} />
                 <Route path="/contact" element={<AnimatedPage direction={direction}><Contact /></AnimatedPage>} />
                 <Route path="/terms" element={<AnimatedPage direction={direction}><Terms /></AnimatedPage>} />
