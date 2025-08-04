@@ -11,6 +11,7 @@ const CourseDetails = () => {
   const [showEnrollModal, setShowEnrollModal] = useState(false);
   const [showSyllabusModal, setShowSyllabusModal] = useState(false);
   const [syllabusEmail, setSyllabusEmail] = useState('');
+  const [expandedModules, setExpandedModules] = useState<number[]>([]);
   const [enrollFormData, setEnrollFormData] = useState({
     fullName: '',
     email: '',
@@ -33,42 +34,134 @@ const CourseDetails = () => {
       heroGradient: 'from-yellow-50 to-white',
       themeColor: 'yellow',
       accentColor: 'blue',
+      totalLectures: 185,
+      totalProjects: 4,
       modules: [
         {
           id: 1,
           title: 'Frontend Fundamentals',
           duration: '3 Months',
+          lectures: 45,
+          totalTime: '32 hours',
+          description: 'Master the fundamentals of web development with HTML5, CSS3, and modern JavaScript',
+          project: 'Responsive Portfolio Website',
           topics: [
-            'HTML5 Semantic Elements & Accessibility',
-            'CSS3 Advanced Styling & Animations',
-            'JavaScript ES6+ & Modern Features',
-            'Responsive Web Design',
-            'CSS Grid & Flexbox Mastery',
-            'Browser Developer Tools',
-            'Version Control with Git & GitHub'
+            { title: 'Introduction to Web Development', duration: '45 min', type: 'video', isPreview: true },
+            { title: 'Setting up Development Environment', duration: '30 min', type: 'video' },
+            { title: 'HTML5 Document Structure', duration: '1 hour', type: 'video' },
+            { title: 'Semantic HTML Elements', duration: '1.5 hours', type: 'video' },
+            { title: 'Forms and Input Elements', duration: '1 hour', type: 'video' },
+            { title: 'HTML Accessibility Best Practices', duration: '45 min', type: 'video' },
+            { title: 'CSS Fundamentals and Selectors', duration: '2 hours', type: 'video' },
+            { title: 'Box Model and Layout', duration: '1.5 hours', type: 'video' },
+            { title: 'Flexbox Layout System', duration: '2 hours', type: 'video' },
+            { title: 'CSS Grid Layout', duration: '2.5 hours', type: 'video' },
+            { title: 'Responsive Design with Media Queries', duration: '2 hours', type: 'video' },
+            { title: 'CSS Animations and Transitions', duration: '1.5 hours', type: 'video' },
+            { title: 'JavaScript Basics - Variables & Data Types', duration: '1.5 hours', type: 'video' },
+            { title: 'JavaScript Functions & Scope', duration: '1.5 hours', type: 'video' },
+            { title: 'DOM Manipulation', duration: '2 hours', type: 'video' },
+            { title: 'Event Handling', duration: '1.5 hours', type: 'video' },
+            { title: 'ES6+ Modern Features', duration: '2 hours', type: 'video' },
+            { title: 'Fetch API & Async JavaScript', duration: '1.5 hours', type: 'video' },
+            { title: 'Git & GitHub Fundamentals', duration: '1 hour', type: 'video' },
+            { title: 'Portfolio Project Planning', duration: '30 min', type: 'assignment' },
+            { title: 'Building Responsive Portfolio - Part 1', duration: '2 hours', type: 'project' },
+            { title: 'Building Responsive Portfolio - Part 2', duration: '2 hours', type: 'project' },
+            { title: 'Code Review Session', duration: '1 hour', type: 'live' },
+            { title: 'Quiz: HTML, CSS & JavaScript Basics', duration: '30 min', type: 'quiz' }
           ],
-          project: 'Responsive Portfolio Website'
+          topicsWithDetails: [
+            {
+              title: 'HTML5 Fundamentals',
+              description: 'Document structure, semantic tags, forms, accessibility, meta tags, input types, tables, lists, and modern HTML5 elements like header, nav, main, section, article, aside, footer'
+            },
+            {
+              title: 'CSS3 Advanced Styling',
+              description: 'Box model, typography, colors, backgrounds, borders, display properties, positioning, float, flexbox, grid layout, media queries, transitions, animations, and custom properties'
+            },
+            {
+              title: 'JavaScript Core Concepts',
+              description: 'Variables (var, let, const), data types, operators, conditionals, loops, functions, arrays, objects, scope, closures, hoisting, ES6+ features, and error handling'
+            },
+            {
+              title: 'DOM Manipulation & Events',
+              description: 'Selecting elements, modifying content, handling events, event delegation, form handling, local storage, and dynamic content creation'
+            },
+            {
+              title: 'Version Control with Git',
+              description: 'Git basics, repositories, commits, branches, merging, GitHub workflows, collaboration, and project management'
+            }
+          ]
         },
         {
           id: 2,
           title: 'React.js Mastery',
           duration: '4 Months',
+          lectures: 65,
+          totalTime: '52 hours',
+          description: 'Deep dive into React ecosystem with hooks, state management, and modern patterns',
+          project: 'E-commerce Web Application',
           topics: [
-            'React Components & JSX',
-            'State Management & Props',
-            'React Hooks (useState, useEffect, useContext)',
-            'React Router for SPA Navigation',
-            'API Integration & Axios',
-            'Form Handling & Validation',
-            'Redux for State Management',
-            'Testing with Jest & React Testing Library'
+            { title: 'React Fundamentals & JSX', duration: '2 hours', type: 'video', isPreview: true },
+            { title: 'Components & Props Deep Dive', duration: '1.5 hours', type: 'video' },
+            { title: 'State Management with useState', duration: '1 hour', type: 'video' },
+            { title: 'useEffect Hook Masterclass', duration: '2 hours', type: 'video' },
+            { title: 'Custom Hooks Creation', duration: '1.5 hours', type: 'video' },
+            { title: 'Context API & useContext', duration: '2 hours', type: 'video' },
+            { title: 'React Router Setup & Navigation', duration: '1.5 hours', type: 'video' },
+            { title: 'Advanced Routing Techniques', duration: '1 hour', type: 'video' },
+            { title: 'Form Handling & Validation', duration: '2 hours', type: 'video' },
+            { title: 'Redux Fundamentals', duration: '3 hours', type: 'video' },
+            { title: 'Redux Toolkit (RTK)', duration: '2 hours', type: 'video' },
+            { title: 'API Integration with Axios', duration: '2 hours', type: 'video' },
+            { title: 'Error Boundaries & Error Handling', duration: '1 hour', type: 'video' },
+            { title: 'React Testing with Jest & RTL', duration: '3 hours', type: 'video' },
+            { title: 'Performance Optimization Techniques', duration: '2 hours', type: 'video' },
+            { title: 'Deployment to Vercel/Netlify', duration: '1 hour', type: 'video' },
+            { title: 'E-commerce Project Planning', duration: '1 hour', type: 'assignment' },
+            { title: 'Building Product Catalog', duration: '3 hours', type: 'project' },
+            { title: 'Shopping Cart Implementation', duration: '2 hours', type: 'project' },
+            { title: 'Payment Integration', duration: '2 hours', type: 'project' },
+            { title: 'User Authentication System', duration: '2 hours', type: 'project' },
+            { title: 'Final Project Review', duration: '2 hours', type: 'live' },
+            { title: 'React Advanced Quiz', duration: '45 min', type: 'quiz' }
           ],
-          project: 'E-commerce Web Application'
+          topicsWithDetails: [
+            {
+              title: 'React Components & JSX',
+              description: 'Functional and class components, JSX syntax, props, children, composition patterns, and component hierarchy design'
+            },
+            {
+              title: 'State Management & Hooks',
+              description: 'useState, useEffect, useContext, useReducer, useMemo, useCallback, custom hooks, and state management patterns'
+            },
+            {
+              title: 'Routing & Navigation',
+              description: 'React Router setup, nested routing, protected routes, programmatic navigation, and URL parameters handling'
+            },
+            {
+              title: 'Global State with Redux',
+              description: 'Redux fundamentals, actions, reducers, store, Redux Toolkit, middleware, and async operations with RTK Query'
+            },
+            {
+              title: 'API Integration & HTTP',
+              description: 'Axios setup, HTTP methods, error handling, loading states, data fetching patterns, and API authentication'
+            },
+            {
+              title: 'Testing & Performance',
+              description: 'Jest and React Testing Library, unit testing, integration testing, performance optimization, and code splitting'
+            }
+          ]
         },
         {
           id: 3,
           title: 'Backend Development',
           duration: '4 Months',
+          lectures: 55,
+          totalTime: '45 hours',
+          description: 'Build robust server-side applications with Node.js, Express, and databases',
+          project: 'Task Management API',
           topics: [
             'Node.js Runtime Environment',
             'Express.js Framework',
@@ -79,12 +172,37 @@ const CourseDetails = () => {
             'Error Handling & Logging',
             'API Security Best Practices'
           ],
-          project: 'Task Management API'
+          topicsWithDetails: [
+            {
+              title: 'Node.js Fundamentals',
+              description: 'Runtime environment, event loop, modules, NPM packages, file system operations, HTTP modules, and debugging techniques'
+            },
+            {
+              title: 'Express.js Framework',
+              description: 'Server setup, routing, middleware, request/response handling, template engines, static files, and application structure'
+            },
+            {
+              title: 'Database Design & MySQL',
+              description: 'Database design principles, MySQL setup, CRUD operations, joins, relationships, migrations, and query optimization'
+            },
+            {
+              title: 'Authentication & Security',
+              description: 'JWT implementation, password hashing, session management, CORS, rate limiting, input validation, and security best practices'
+            },
+            {
+              title: 'API Development',
+              description: 'RESTful API design, HTTP methods, status codes, error handling, documentation, testing, and API versioning'
+            }
+          ]
         },
         {
           id: 4,
           title: 'Full Stack Integration',
           duration: '2.5 Months',
+          lectures: 30,
+          totalTime: '25 hours',
+          description: 'Connect frontend and backend, deploy applications, and implement DevOps practices',
+          project: 'Complete Social Media Platform',
           topics: [
             'Frontend-Backend Integration',
             'Database Optimization',
@@ -95,7 +213,28 @@ const CourseDetails = () => {
             'CI/CD Basics',
             'Production Best Practices'
           ],
-          project: 'Complete Social Media Platform'
+          topicsWithDetails: [
+            {
+              title: 'Frontend-Backend Integration',
+              description: 'API integration, CORS handling, authentication flow, data synchronization, error handling, and state management'
+            },
+            {
+              title: 'Database Optimization',
+              description: 'Query optimization, indexing, connection pooling, caching strategies, and database performance tuning'
+            },
+            {
+              title: 'Deployment & DevOps',
+              description: 'Cloud deployment, Docker basics, CI/CD pipelines, environment management, and production configurations'
+            },
+            {
+              title: 'Performance & Monitoring',
+              description: 'Application performance optimization, monitoring tools, logging, analytics, and error tracking'
+            },
+            {
+              title: 'Production Best Practices',
+              description: 'Security hardening, backup strategies, scaling considerations, and maintenance procedures'
+            }
+          ]
         }
       ],
       techStack: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'MySQL'],
@@ -379,6 +518,14 @@ const CourseDetails = () => {
     });
   };
 
+  const toggleModuleExpansion = (moduleId: number) => {
+    setExpandedModules(prev =>
+        prev.includes(moduleId)
+            ? prev.filter(id => id !== moduleId)
+            : [...prev, moduleId]
+    );
+};
+
   return (
     <div>
       <ScrollFadeIn>
@@ -564,205 +711,117 @@ const CourseDetails = () => {
                   <div className="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
                 </div>
 
-                <div className="space-y-8">
-                  {currentCourse.modules.map((module) => (
-                    <div key={module.id} className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                      <div className="flex flex-col lg:flex-row lg:items-start gap-6">
-                        <div className="lg:w-1/3">
-                          <div className="flex items-center mb-4">
+                {/* Course Statistics */}
+                <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 mb-8">
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                      <div className="text-2xl font-bold text-yellow-600">
+                        {'totalLectures' in currentCourse ? currentCourse.totalLectures : 185}
+                      </div>
+                      <div className="text-gray-600 text-sm">Total Lectures</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-green-600">
+                        {'totalProjects' in currentCourse ? currentCourse.totalProjects : 4}
+                      </div>
+                      <div className="text-gray-600 text-sm">Hands-on Projects</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-blue-600">{currentCourse.modules.length}</div>
+                      <div className="text-gray-600 text-sm">Modules</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-purple-600">Lifetime</div>
+                      <div className="text-gray-600 text-sm">Access</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Detailed Module List */}
+                <div className="space-y-6">
+                  {currentCourse.modules.map((module) => {
+                    const isExpanded = expandedModules.includes(module.id);
+
+                    return (
+                      <div key={module.id} className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                        <div
+                          className="flex items-center justify-between cursor-pointer mb-6"
+                          onClick={() => toggleModuleExpansion(module.id)}
+                        >
+                          <div className="flex items-center">
                             <div className="w-14 h-14 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-full flex items-center justify-center font-bold text-xl mr-4 shadow-lg">
                               {module.id}
                             </div>
                             <div>
                               <h3 className="text-xl font-bold text-gray-900">{module.title}</h3>
                               <span className="text-yellow-600 font-medium text-lg">{module.duration}</span>
+                              {'lectures' in module && (
+                                <div className="text-sm text-gray-600 mt-1">
+                                  {module.lectures} lectures • {module.totalTime}
+                                </div>
+                              )}
                             </div>
                           </div>
-                          <div className="bg-gradient-to-r from-green-100 to-green-200 p-4 rounded-lg border-l-4 border-green-500">
-                            <h4 className="font-bold text-green-800 mb-2 flex items-center">
-                              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                              </svg>
-                              Project:
-                            </h4>
-                            <p className="text-green-700 text-sm font-medium">{module.project}</p>
-                          </div>
+                          <svg
+                            className={`w-6 h-6 transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
                         </div>
-                        
-                        <div className="lg:w-2/3">
-                          <h4 className="font-bold text-gray-900 mb-4 text-lg">What You'll Learn:</h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {module.topics.map((topic, topicIndex) => (
-                              <div key={topicIndex} className="flex items-center p-2 bg-gray-50 rounded-lg">
-                                <div className="w-2 h-2 bg-yellow-600 rounded-full mr-3 flex-shrink-0"></div>
-                                <span className="text-gray-700 text-sm">{topic}</span>
+
+                        {isExpanded && (
+                          <div className="lg:flex gap-6">
+                            <div className="lg:w-1/3 mb-6 lg:mb-0">
+                              <div className="bg-gradient-to-r from-green-100 to-green-200 p-4 rounded-lg border-l-4 border-green-500">
+                                <h4 className="font-bold text-green-800 mb-2 flex items-center">
+                                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                  </svg>
+                                  Project:
+                                </h4>
+                                <p className="text-green-700 text-sm font-medium">{module.project}</p>
                               </div>
-                            ))}
+                            </div>
+
+                            <div className="lg:w-2/3">
+                              <h4 className="font-bold text-gray-900 mb-4 text-lg">What You'll Learn:</h4>
+                              <div className="space-y-4">
+                                {'topicsWithDetails' in module && module.topicsWithDetails ? (
+                                  module.topicsWithDetails.map((topic, idx) => (
+                                    <div key={idx} className="bg-gray-50 p-4 rounded-md border-l-4 border-yellow-500 shadow-sm">
+                                      <h5 className="font-semibold text-gray-800 mb-2">{topic.title}</h5>
+                                      <p className="text-sm text-gray-600 leading-relaxed">{topic.description}</p>
+                                    </div>
+                                  ))
+                                ) : (
+                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    {Array.isArray(module.topics) && module.topics.map((topic, topicIndex) => (
+                                      <div key={topicIndex} className="flex items-center p-2 bg-gray-50 rounded-lg">
+                                        <div className="w-2 h-2 bg-yellow-600 rounded-full mr-3 flex-shrink-0"></div>
+                                        <span className="text-gray-700 text-sm">
+                                          {typeof topic === 'string' ? topic : topic.title}
+                                        </span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}
-
-            {/* Projects Tab */}
-            {activeTab === 'projects' && (
-              <div>
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Build <span className="text-yellow-600">Real-World Projects</span>
-                  </h2>
-                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-                    Gain hands-on experience by building projects that showcase your skills to potential employers.
-                  </p>
-                  <div className="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {currentCourse.modules.map((module) => (
-                    <div key={module.id} className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 hover:scale-105">
-                      <div className="flex items-center mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-full flex items-center justify-center font-bold mr-3 shadow-lg">
-                          {module.id}
-                        </div>
-                        <h3 className="text-lg font-bold text-gray-900">{module.project}</h3>
-                      </div>
-                      <p className="text-gray-600 mb-4 bg-gray-50 p-3 rounded-lg">
-                        <span className="font-semibold">Module:</span> {module.title}
-                      </p>
-                      <div className="space-y-2">
-                        <h4 className="font-semibold text-gray-900 flex items-center">
-                          <svg className="w-5 h-5 mr-2 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                          </svg>
-                          Key Features:
-                        </h4>
-                        <ul className="text-sm text-gray-600 space-y-2">
-                          {module.topics.slice(0, 3).map((topic, topicIndex) => (
-                            <li key={topicIndex} className="flex items-center p-2 bg-yellow-50 rounded-lg">
-                              <span className="w-1.5 h-1.5 bg-yellow-600 rounded-full mr-2"></span>
-                              {topic}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="mt-4 pt-4 border-t border-gray-200">
-                        <span className="inline-flex items-center bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-800 text-xs px-3 py-1 rounded-full font-medium">
-                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                          </svg>
-                          Portfolio Ready
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Career Paths Tab */}
-            {activeTab === 'career' && (
-              <div>
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    <span className="text-yellow-600">Career Opportunities</span>
-                  </h2>
-                  <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-                    {currentCourse.title} professionals are in high demand. Here are the career paths you can pursue.
-                  </p>
-                  <div className="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                  {currentCourse.careerPaths?.map((career, index) => (
-                    <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200">
-                      <div className="text-center">
-                        <div className="w-16 h-16 bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0H8" />
-                          </svg>
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">{career.role}</h3>
-                        <div className="text-3xl font-bold text-green-600 mb-3">{career.salary}</div>
-                        <p className="text-gray-600 text-sm leading-relaxed">{career.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Placement Support */}
-                <div className="bg-gradient-to-r from-yellow-600 to-orange-500 text-white p-8 rounded-xl shadow-xl">
-                  <h3 className="text-2xl font-bold mb-6 text-center flex items-center justify-center">
-                    <svg className="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Placement Support
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
-                      <div className="flex justify-center mb-3">
-                        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                      </div>
-                      <h4 className="font-bold mb-2">Resume Building</h4>
-                      <p className="text-sm opacity-90">Professional resume review and optimization</p>
-                    </div>
-                    <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
-                      <div className="flex justify-center mb-3">
-                        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                      </div>
-                      <h4 className="font-bold mb-2">Mock Interviews</h4>
-                      <p className="text-sm opacity-90">Practice with real interview scenarios</p>
-                    </div>
-                    <div className="text-center p-4 bg-white bg-opacity-10 rounded-lg">
-                      <div className="flex justify-center mb-3">
-                        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                      </div>
-                      <h4 className="font-bold mb-2">Job Referrals</h4>
-                      <p className="text-sm opacity-90">Direct connections to hiring partners</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-      </ScrollFadeIn>
-
-      {/* CTA Section */}
-      <ScrollFadeIn>
-        <section className="py-16 bg-gradient-to-r from-yellow-600 to-orange-500">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              <svg className="w-10 h-10 inline mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Ready to Start Your Journey?
-            </h2>
-            <p className="text-xl text-yellow-100 mb-8 max-w-3xl mx-auto">
-              Join thousands of students who have successfully launched their tech careers with DevBee Academy.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-yellow-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg">
-                Enroll Now - {currentCourse.price}
-              </button>
-              <a
-                href="tel:+919876543210"
-                className="border-2 border-white text-white hover:bg-white hover:text-yellow-600 px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center justify-center"
-              >
-                Talk to Counsellor
-              </a>
             </div>
-          </div>
         </section>
       </ScrollFadeIn>
+    
 
       {/* Syllabus Download Modal */}
       {showSyllabusModal && (
