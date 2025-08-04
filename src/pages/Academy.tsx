@@ -938,11 +938,11 @@ const Academy = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
-                  <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white p-6 rounded-lg mb-6">
+                  <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white p-6 rounded-lg h-full">
                     <h4 className="text-lg font-bold mb-3">
                       🎯 For Top Performers
                     </h4>
-                    <div className="space-y-2 text-sm">
+                    <div className="space-y-3 text-sm">
                       <div className="flex items-center space-x-2">
                         <span>✨</span>
                         <span>Final technical test by senior developers</span>
@@ -951,16 +951,24 @@ const Academy = () => {
                         <span>🚀</span>
                         <span>Direct placement opportunity at DevBee</span>
                       </div>
+                      <div className="flex items-center space-x-2">
+                        <span>🏆</span>
+                        <span>Join our elite development team</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <span>💰</span>
+                        <span>Competitive salary package</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-lg">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-lg h-full">
                     <h4 className="text-lg font-bold mb-3">
                       🤝 For All Others
                     </h4>
-                    <div className="space-y-2 text-sm">
+                    <div className="space-y-3 text-sm">
                       <div className="flex items-center space-x-2">
                         <span>📄</span>
                         <span>Resume review and feedback</span>
