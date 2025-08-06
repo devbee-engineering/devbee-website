@@ -6,19 +6,19 @@ const About = () => {
     {
       name: 'Abuthair Mohammed Rafiq',
       role: 'CEO & Founder',
-      image: '/public/abpfp.png',
+      image: '/abpfp.png',
       description: 'Visionary leader with 15+ years in software development and business strategy.'
     },
     {
       name: 'Fasil Marshooq',
       role: 'Co-Founder & COO',
-      image: '/public/fasil.webp',
+      image: '/fasil.webp',
       description: 'Technical expert specializing in AI, cloud architecture, and scalable systems.'
     },
     {
       name: 'Musthak Ahamed',
       role: 'Lead Developer',
-      image: '/public/mus.png',
+      image: '/mus.png',
       description: 'Full-stack developer with expertise in modern web and mobile technologies.'
     },
     // {
