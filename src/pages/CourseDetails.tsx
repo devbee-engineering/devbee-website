@@ -28,7 +28,7 @@ const CourseDetails = () => {
     fullstack: {
       title: 'Full Stack Web Development',
       description: 'Master modern web development with React, Node.js, and MySQL. Build real-world applications and launch your career as a full stack developer.',
-      duration: '13.5 Months',
+      duration: '4 Months',
       price: '₹30,000',
       level: 'Beginner to Advanced',
       heroGradient: 'from-yellow-50 to-white',
@@ -250,7 +250,7 @@ const CourseDetails = () => {
     frontend: {
       title: 'Frontend Web Development',
       description: 'Master modern frontend development with HTML, CSS, JavaScript, and React. Create stunning user interfaces and interactive web applications.',
-      duration: '8 Months',
+      duration: '4 Months',
       price: '₹20,000',
       level: 'Beginner to Intermediate',
       heroGradient: 'from-yellow-50 to-white',
@@ -329,7 +329,7 @@ const CourseDetails = () => {
     backend: {
       title: 'Backend Web Development',
       description: 'Master server-side development with Node.js, Express, and databases. Build robust APIs and scalable backend systems.',
-      duration: '8 Months',
+      duration: '4 Months',
       price: '₹25,000',
       level: 'Beginner to Advanced',
       heroGradient: 'from-yellow-50 to-white',

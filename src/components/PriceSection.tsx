@@ -45,14 +45,14 @@ const PricingSection = () => {
 
   const renderIcon = (tech: string) => {
     const iconMap: Record<string, string> = {
-      HTML: '/public/icons/html.svg',
-      CSS: '/public/icons/Php.svg',
-      JS: '/public/icons/javascript.svg',
-      React: '/public/icons/react.svg',
-      Node: '/public/icons/nodejs.svg',
-      Express: '/public/icons/express.svg',
-      Redis: '/public/icons/redis.svg',
-      Mongo: '/public/icons/mongodb.svg',
+      HTML: '/icons/html.svg',
+      CSS: '/icons/Php.svg',
+      JS: '/icons/javascript.svg',
+      React: '/icons/react.svg',
+      Node: '/icons/nodejs.svg',
+      Express: '/icons/express.svg',
+      Redis: '/icons/redis.svg',
+      Mongo: '/icons/mongodb.svg',
     };
 
     const src = iconMap[tech];
