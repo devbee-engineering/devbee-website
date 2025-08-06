@@ -10,34 +10,34 @@ const PricingSection = () => {
     INR: [
       {
         title: 'Full Stack Web Development',
-        price: '₹48999',
+        price: '₹30,000',
         icons: ['HTML', 'CSS', 'JS', 'React', 'Node', 'Redis', 'Mongo'],
       },
       {
         title: 'Front End Web Development',
-        price: '₹27999',
+        price: '₹20,000',
         icons: ['HTML', 'CSS', 'JS', 'React'],
       },
       {
         title: 'Back End Web Development',
-        price: '₹27999',
+        price: '₹25,000',
         icons: ['Node', 'Express', 'Redis', 'Mongo'],
       },
     ],
     USD: [
       {
         title: 'Full Stack Web Development',
-        price: '$588',
+        price: '$342',
         icons: ['HTML', 'CSS', 'JS', 'React', 'Node', 'Redis', 'Mongo'],
       },
       {
         title: 'Front End Web Development',
-        price: '$336',
+        price: '$228',
         icons: ['HTML', 'CSS', 'JS', 'React'],
       },
       {
         title: 'Back End Web Development',
-        price: '$336',
+        price: '$285',
         icons: ['Node', 'Express', 'Redis', 'Mongo'],
       },
     ],
