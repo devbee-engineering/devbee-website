@@ -24,7 +24,7 @@ const Academy = () => {
 
   const curriculumData: Record<CurriculumLevel, CurriculumData> = {
     beginner: {
-      duration: "11.5 Months",
+      duration: "4 Months",
       modules: [
         {
           id: 1,
@@ -109,7 +109,7 @@ const Academy = () => {
       ],
     },
     intermediate: {
-      duration: "11.5 Months",
+      duration: "4 Months",
       modules: [
         {
           id: 1,
@@ -195,7 +195,7 @@ const Academy = () => {
       ],
     },
     advanced: {
-      duration: "9.5 Months",
+      duration: "4 Months",
       modules: [
         {
           id: 1,
