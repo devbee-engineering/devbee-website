@@ -40,7 +40,7 @@ const CourseDetails = () => {
         {
           id: 1,
           title: 'Frontend Fundamentals',
-          duration: '3 Months',
+          duration: '1 Month',
           lectures: 45,
           totalTime: '32 hours',
           description: 'Master the fundamentals of web development with HTML5, CSS3, and modern JavaScript',
@@ -97,7 +97,7 @@ const CourseDetails = () => {
         {
           id: 2,
           title: 'React.js Mastery',
-          duration: '4 Months',
+          duration: '1 Month',
           lectures: 65,
           totalTime: '52 hours',
           description: 'Deep dive into React ecosystem with hooks, state management, and modern patterns',
@@ -157,7 +157,7 @@ const CourseDetails = () => {
         {
           id: 3,
           title: 'Backend Development',
-          duration: '4 Months',
+          duration: '1 Month',
           lectures: 55,
           totalTime: '45 hours',
           description: 'Build robust server-side applications with Node.js, Express, and databases',
@@ -198,7 +198,7 @@ const CourseDetails = () => {
         {
           id: 4,
           title: 'Full Stack Integration',
-          duration: '2.5 Months',
+          duration: '1 Month',
           lectures: 30,
           totalTime: '25 hours',
           description: 'Connect frontend and backend, deploy applications, and implement DevOps practices',
@@ -260,7 +260,7 @@ const CourseDetails = () => {
         {
           id: 1,
           title: 'HTML & CSS Mastery',
-          duration: '2 Months',
+          duration: '1 Month',
           topics: [
             'HTML5 Semantic Elements',
             'CSS3 Advanced Styling',
@@ -275,7 +275,7 @@ const CourseDetails = () => {
         {
           id: 2,
           title: 'JavaScript Fundamentals',
-          duration: '2.5 Months',
+          duration: '1 Month',
           topics: [
             'ES6+ Modern JavaScript',
             'DOM Manipulation',
@@ -290,7 +290,7 @@ const CourseDetails = () => {
         {
           id: 3,
           title: 'React.js Development',
-          duration: '3 Months',
+          duration: '1 Month',
           topics: [
             'React Components & JSX',
             'State Management with Hooks',
@@ -305,7 +305,7 @@ const CourseDetails = () => {
         {
           id: 4,
           title: 'Frontend Tools & Deployment',
-          duration: '0.5 Month',
+          duration: '1 Month',
           topics: [
             'Webpack & Build Tools',
             'Version Control with Git',
@@ -329,7 +329,7 @@ const CourseDetails = () => {
     backend: {
       title: 'Backend Web Development',
       description: 'Master server-side development with Node.js, Express, and databases. Build robust APIs and scalable backend systems.',
-      duration: '4 Months',
+      duration: '1 Month',
       price: '₹25,000',
       level: 'Beginner to Advanced',
       heroGradient: 'from-yellow-50 to-white',
@@ -339,7 +339,7 @@ const CourseDetails = () => {
         {
           id: 1,
           title: 'Node.js Fundamentals',
-          duration: '2 Months',
+          duration: '1 Month',
           topics: [
             'Node.js Runtime Environment',
             'NPM & Package Management',
@@ -354,7 +354,7 @@ const CourseDetails = () => {
         {
           id: 2,
           title: 'Express.js Framework',
-          duration: '2.5 Months',
+          duration: '1 Month',
           topics: [
             'Express.js Setup & Configuration',
             'Routing & Middleware',
@@ -369,7 +369,7 @@ const CourseDetails = () => {
         {
           id: 3,
           title: 'Database Integration',
-          duration: '2.5 Months',
+          duration: '1 Month',
           topics: [
             'MySQL Database Design',
             'Database Connections',
@@ -872,6 +872,71 @@ const CourseDetails = () => {
                     })}
                   </div>
                 </div>
+
+                {/* Requirements, Target Audience, and Unique Features - Only for Internship Program */}
+                {currentCourseType === 'internship' && (
+                  <div className="mt-16 space-y-12">
+                    {/* Requirements Section */}
+                    {'requirements' in currentCourse && currentCourse.requirements && (
+                      <div className="bg-blue-50 p-8 rounded-xl shadow-lg border border-blue-200">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
+                          <svg className="w-8 h-8 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          Requirements
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {currentCourse.requirements.map((requirement, index) => (
+                            <div key={index} className="flex items-center p-4 bg-white rounded-lg border border-blue-100">
+                              <div className="w-3 h-3 bg-blue-600 rounded-full mr-4 flex-shrink-0"></div>
+                              <span className="text-gray-700">{requirement}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Target Audience Section */}
+                    {'targetAudience' in currentCourse && currentCourse.targetAudience && (
+                      <div className="bg-green-50 p-8 rounded-xl shadow-lg border border-green-200">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
+                          <svg className="w-8 h-8 mr-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                          Who This Course is For
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {currentCourse.targetAudience.map((audience, index) => (
+                            <div key={index} className="flex items-center p-4 bg-white rounded-lg border border-green-100">
+                              <div className="w-3 h-3 bg-green-600 rounded-full mr-4 flex-shrink-0"></div>
+                              <span className="text-gray-700">{audience}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Unique Features Section */}
+                    {'uniqueFeatures' in currentCourse && currentCourse.uniqueFeatures && (
+                      <div className="bg-purple-50 p-8 rounded-xl shadow-lg border border-purple-200">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
+                          <svg className="w-8 h-8 mr-3 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                          </svg>
+                          What Makes This Program Unique
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {currentCourse.uniqueFeatures.map((feature, index) => (
+                            <div key={index} className="flex items-center p-4 bg-white rounded-lg border border-purple-100">
+                              <div className="w-3 h-3 bg-purple-600 rounded-full mr-4 flex-shrink-0"></div>
+                              <span className="text-gray-700">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             )}
 

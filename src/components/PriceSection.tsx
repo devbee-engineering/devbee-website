@@ -25,7 +25,7 @@ const PricingSection = () => {
       },
       {
         title: '15-Day Internship Program',
-        price: '₹5,000',
+        price: '₹3,000',
         icons: ['HTML', 'CSS', 'JS', 'Php', 'Mongo'],
       },
     ],
@@ -64,6 +64,7 @@ const PricingSection = () => {
       Redis: '/icons/redis.svg',
       Mongo: '/icons/mongodb.svg',
       Php: '/icons/Php.svg',
+      Mysql: '/icons/mysql.svg'
     };
 
     const src = iconMap[tech];
