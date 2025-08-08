@@ -23,6 +23,11 @@ const PricingSection = () => {
         price: '₹25,000',
         icons: ['Node', 'Express', 'Redis', 'Mongo'],
       },
+      {
+        title: '15-Day Internship Program',
+        price: '₹5,000',
+        icons: ['HTML', 'CSS', 'JS', 'Php', 'Mongo'],
+      },
     ],
     USD: [
       {
@@ -40,6 +45,11 @@ const PricingSection = () => {
         price: '$285',
         icons: ['Node', 'Express', 'Redis', 'Mongo'],
       },
+      {
+        title: '15-Day Internship Program',
+        price: '$57',
+        icons: ['HTML', 'CSS', 'JS', 'Php', 'Mongo'],
+      },
     ],
   };
 
@@ -53,6 +63,7 @@ const PricingSection = () => {
       Express: '/icons/express.svg',
       Redis: '/icons/redis.svg',
       Mongo: '/icons/mongodb.svg',
+      Php: '/icons/Php.svg',
     };
 
     const src = iconMap[tech];
@@ -108,7 +119,7 @@ const PricingSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             choose a learning track
           </h3>
-          <p className="text-gray-600 text-lg">starting at {prices[currency][1].price}</p>
+          <p className="text-gray-600 text-lg">starting at {prices[currency][3].price}</p>
           <div className="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
         </div>
 
@@ -146,6 +157,8 @@ const PricingSection = () => {
                         ? 'fullstack' 
                         : track.title.toLowerCase().includes('front end') || track.title.toLowerCase().includes('frontend')
                         ? 'frontend' 
+                        : track.title.toLowerCase().includes('internship')
+                        ? 'internship'
                         : 'backend'
                     }`}
                     className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-4 rounded-full flex items-center gap-3 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl font-medium"
