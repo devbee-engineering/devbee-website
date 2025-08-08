@@ -409,7 +409,7 @@ const CourseDetails = () => {
       title: '15-Day Internship Program',
       description: 'Learn to Build Your Own Project with HTML, CSS, JS, PHP/Python, MySQL, and Git. A hands-on, beginner-friendly bootcamp designed for college students to build their very own web project from scratch.',
       duration: '15 Days',
-      price: '₹5,000',
+      price: '₹3,000',
       level: 'Beginner',
       heroGradient: 'from-green-50 to-white',
       themeColor: 'green',
@@ -835,15 +835,15 @@ const CourseDetails = () => {
                     {currentCourse.techStack.map((tech, index) => {
                       const getIconPath = (techName: string) => {
                         const iconMap: Record<string, string> = {
-                          'HTML': '/public/icons/html.svg',
-                          'CSS': '/public/icons/Php.svg',
-                          'JavaScript': '/public/icons/javascript.svg',
-                          'React': '/public/icons/react.svg',
-                          'Node.js': '/public/icons/nodejs.svg',
-                          'Express': '/public/icons/express.svg',
-                          'MySQL': '/public/icons/mysql.svg',
-                          'Redis': '/public/icons/redis.svg',
-                          'Git': '/public/icons/git.svg'
+                          'HTML': '/icons/html.svg',
+                          'CSS': '/icons/Php.svg',
+                          'JavaScript': '/icons/javascript.svg',
+                          'React': '/icons/react.svg',
+                          'Node.js': '/icons/nodejs.svg',
+                          'Express': '/icons/express.svg',
+                          'MySQL': '/icons/mysql.svg',
+                          'Redis': '/icons/redis.svg',
+                          'Git': '/icons/git.svg'
                         };
                         return iconMap[techName] || '/icons/default.svg';
                       };
