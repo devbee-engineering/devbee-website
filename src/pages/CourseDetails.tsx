@@ -404,6 +404,182 @@ const CourseDetails = () => {
         { role: 'API Developer', salary: '₹3-7 LPA', description: 'Focus on API design and development' },
         { role: 'Database Developer', salary: '₹3-8 LPA', description: 'Database design and optimization specialist' }
       ]
+    },
+    internship: {
+      title: '15-Day Internship Program',
+      description: 'Learn to Build Your Own Project with HTML, CSS, JS, PHP/Python, MySQL, and Git. A hands-on, beginner-friendly bootcamp designed for college students to build their very own web project from scratch.',
+      duration: '15 Days',
+      price: '₹5,000',
+      level: 'Beginner',
+      heroGradient: 'from-green-50 to-white',
+      themeColor: 'green',
+      accentColor: 'blue',
+      totalLectures: 30,
+      totalProjects: 1,
+      modules: [
+        {
+          id: 1,
+          title: 'Development Fundamentals',
+          duration: '5 Days',
+          lectures: 10,
+          totalTime: '15 hours',
+          description: 'Learn the basics of software development, project structure, and essential tools',
+          project: 'Setting up Development Environment',
+          topics: [
+            { title: 'What is Software Development?', duration: '1 hour', type: 'video', isPreview: true },
+            { title: 'Project Structure and Setup', duration: '1.5 hours', type: 'video' },
+            { title: 'Tools for Frontend/Backend Development', duration: '1 hour', type: 'video' },
+            { title: 'HTML Fundamentals', duration: '2 hours', type: 'video' },
+            { title: 'CSS Styling and Box Model', duration: '2 hours', type: 'video' },
+            { title: 'CSS Flexbox Layout', duration: '1.5 hours', type: 'video' },
+            { title: 'JavaScript Basics for Interactivity', duration: '2 hours', type: 'video' },
+            { title: 'DOM Manipulation', duration: '1.5 hours', type: 'video' },
+            { title: 'Creating Your First Web Page', duration: '2 hours', type: 'project' },
+            { title: 'Day 1-5 Assessment', duration: '30 min', type: 'quiz' }
+          ],
+          topicsWithDetails: [
+            {
+              title: 'Software Development Overview',
+              description: 'Understanding how software projects work, development lifecycle, and real-world project structure'
+            },
+            {
+              title: 'HTML Foundation',
+              description: 'Document structure, semantic elements, forms, and basic page layout principles'
+            },
+            {
+              title: 'CSS Fundamentals',
+              description: 'Styling techniques, box model, flexbox layout, responsive design basics, and modern CSS practices'
+            },
+            {
+              title: 'JavaScript Essentials',
+              description: 'Variables, functions, DOM manipulation, event handling, and basic interactivity'
+            }
+          ]
+        },
+        {
+          id: 2,
+          title: 'Backend Programming',
+          duration: '5 Days',
+          lectures: 10,
+          totalTime: '15 hours',
+          description: 'Master backend programming with PHP or Python and database integration',
+          project: 'Dynamic Web Application',
+          topics: [
+            { title: 'Introduction to Backend Development', duration: '1 hour', type: 'video', isPreview: true },
+            { title: 'PHP/Python Basics', duration: '2 hours', type: 'video' },
+            { title: 'Server-Side Programming Concepts', duration: '1.5 hours', type: 'video' },
+            { title: 'MySQL Database Fundamentals', duration: '2 hours', type: 'video' },
+            { title: 'Creating and Connecting to Database', duration: '2 hours', type: 'video' },
+            { title: 'CRUD Operations', duration: '2 hours', type: 'video' },
+            { title: 'Form Processing and Validation', duration: '1.5 hours', type: 'video' },
+            { title: 'Building Your Backend Logic', duration: '2 hours', type: 'project' },
+            { title: 'Database Integration Practice', duration: '1 hour', type: 'project' },
+            { title: 'Backend Development Quiz', duration: '30 min', type: 'quiz' }
+          ],
+          topicsWithDetails: [
+            {
+              title: 'Backend Programming',
+              description: 'PHP or Python fundamentals, server-side logic, data processing, and backend architecture'
+            },
+            {
+              title: 'MySQL Database',
+              description: 'Database design, table creation, relationships, SQL queries, and data management'
+            },
+            {
+              title: 'Database Integration',
+              description: 'Connecting backend code to database, CRUD operations, data validation, and error handling'
+            },
+            {
+              title: 'Form Processing',
+              description: 'Handling user input, form validation, data sanitization, and secure data processing'
+            }
+          ]
+        },
+        {
+          id: 3,
+          title: 'Version Control & Learning Resources',
+          duration: '3 Days',
+          lectures: 6,
+          totalTime: '8 hours',
+          description: 'Master Git/GitHub and learn to use online resources effectively',
+          project: 'GitHub Portfolio Setup',
+          topics: [
+            { title: 'Git and GitHub Fundamentals', duration: '1.5 hours', type: 'video' },
+            { title: 'Version Control Best Practices', duration: '1 hour', type: 'video' },
+            { title: 'Using ChatGPT for Coding Help', duration: '1 hour', type: 'video' },
+            { title: 'Online Learning Platforms (W3Schools, FreeCodeCamp)', duration: '1 hour', type: 'video' },
+            { title: 'Problem Solving and Debugging', duration: '1.5 hours', type: 'video' },
+            { title: 'Setting up GitHub Repository', duration: '2 hours', type: 'project' }
+          ],
+          topicsWithDetails: [
+            {
+              title: 'Git & GitHub',
+              description: 'Version control basics, repositories, commits, branches, collaboration, and project management'
+            },
+            {
+              title: 'AI-Assisted Learning',
+              description: 'Using ChatGPT effectively for code writing, debugging, learning, and problem-solving'
+            },
+            {
+              title: 'Self-Learning Resources',
+              description: 'Effective use of W3Schools, MDN, FreeCodeCamp, Udemy, and other online platforms'
+            }
+          ]
+        },
+        {
+          id: 4,
+          title: 'Final Project & Documentation',
+          duration: '2 Days',
+          lectures: 4,
+          totalTime: '6 hours',
+          description: 'Build your complete project and create professional documentation',
+          project: 'Complete CRUD Application (Student Registration or To-Do App)',
+          topics: [
+            { title: 'Project Planning and Requirements', duration: '1 hour', type: 'video' },
+            { title: 'Building Your CRUD Application', duration: '3 hours', type: 'project' },
+            { title: 'Writing Professional README Files', duration: '1 hour', type: 'video' },
+            { title: 'Project Documentation and Submission', duration: '1 hour', type: 'project' }
+          ],
+          topicsWithDetails: [
+            {
+              title: 'Complete Project Development',
+              description: 'Planning, building, and testing a full CRUD application with frontend and backend integration'
+            },
+            {
+              title: 'Professional Documentation',
+              description: 'Creating README files, project documentation, and presenting your work professionally'
+            }
+          ]
+        }
+      ],
+      techStack: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Git'],
+      careerPaths: [
+        { role: 'Junior Web Developer', salary: '₹2-4 LPA', description: 'Entry-level web development positions' },
+        { role: 'Frontend Developer Intern', salary: '₹1-3 LPA', description: 'Internship opportunities in frontend development' },
+        { role: 'Backend Developer Intern', salary: '₹1-3 LPA', description: 'Internship opportunities in backend development' },
+        { role: 'Full Stack Trainee', salary: '₹2-4 LPA', description: 'Trainee positions for full stack development' }
+      ],
+      requirements: [
+        'Basic computer operation skills',
+        'A laptop with internet connection',
+        'Willingness to learn and build your own project',
+        'No prior coding knowledge required'
+      ],
+      targetAudience: [
+        'College students preparing for final year or mini projects',
+        'Beginners with no prior programming experience',
+        'Students who want to build and understand their own project',
+        'Aspiring developers looking for a structured path',
+        'Anyone interested in web development fundamentals'
+      ],
+      uniqueFeatures: [
+        'Complete roadmap from beginner to project builder',
+        'Learn to use ChatGPT and online resources effectively',
+        'Build your own college-level project',
+        'Professional project documentation',
+        'Certificate verification via website',
+        'No copied projects - build your own understanding'
+      ]
     }
   };
 
@@ -666,7 +842,8 @@ const CourseDetails = () => {
                           'Node.js': '/public/icons/nodejs.svg',
                           'Express': '/public/icons/express.svg',
                           'MySQL': '/public/icons/mysql.svg',
-                          'Redis': '/public/icons/redis.svg'
+                          'Redis': '/public/icons/redis.svg',
+                          'Git': '/public/icons/git.svg'
                         };
                         return iconMap[techName] || '/icons/default.svg';
                       };
