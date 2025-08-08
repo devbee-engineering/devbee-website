@@ -29,17 +29,17 @@ const Academy = () => {
         {
           id: 1,
           title: " HTML, CSS & JavaScript (Frontend Basics)",
-          duration: "2 Months",
+          duration: "15 days",
         },
-        { id: 2, title: "Advanced React.js", duration: "4.5 Months" },
-        { id: 3, title: "PHP with MySQL", duration: "0.5 Month" },
+        { id: 2, title: "Advanced React.js", duration: "15 days" },
+        { id: 3, title: "PHP with MySQL", duration: "15 days" },
         {
           id: 4,
           title: "Node.js with Express & MySQL",
-          duration: "3.5 Months",
+          duration: "1 Month",
         },
         { id: 5, title: "Python with MySQL", duration: "1 Month" },
-        { id: 6, title: " Internship & Final Project", duration: "1 Month" },
+        { id: 6, title: " Internship & Final Project", duration: "15 days" },
       ],
       details: [
         [
@@ -114,22 +114,22 @@ const Academy = () => {
         {
           id: 1,
           title: "Advanced JavaScript & TypeScript",
-          duration: "2 Months",
+          duration: "15 days",
         },
         {
           id: 2,
           title: "React.js Advanced Concepts & Ecosystem",
-          duration: "4.5 Months",
+          duration: "15 days",
         },
         {
           id: 3,
           title: "Full-stack PHP & Laravel with MySQL",
-          duration: "0.5 Month",
+          duration: "15 days",
         },
         {
           id: 4,
           title: "Node.js Advanced (Express, MySQL, REST, Real-time)",
-          duration: "3.5 Months",
+          duration: "1 Month",
         },
         {
           id: 5,
@@ -139,7 +139,7 @@ const Academy = () => {
         {
           id: 6,
           title: "Team Project & Code Collaboration",
-          duration: "1 Month",
+          duration: "15 days",
         },
       ],
       details: [
@@ -200,20 +200,20 @@ const Academy = () => {
         {
           id: 1,
           title: "Enterprise Architecture & Design Patterns",
-          duration: "2 Months",
+          duration: "15 days",
         },
-        { id: 2, title: "React SSR & Micro-Frontends", duration: "2 Months" },
-        { id: 3, title: "Scalable Node.js Systems", duration: "2 Months" },
-        { id: 4, title: "Advanced DevOps & Security", duration: "1.5 Months" },
+        { id: 2, title: "React SSR & Micro-Frontends", duration: "15 days" },
+        { id: 3, title: "Scalable Node.js Systems", duration: "15 days" },
+        { id: 4, title: "Advanced DevOps & Security", duration: "1 Month" },
         {
           id: 5,
           title: "Data Engineering with Python",
-          duration: "1.5 Months",
+          duration: "1 Month",
         },
         {
           id: 6,
           title: "Final Capstone Project + Presentation",
-          duration: "1 Month",
+          duration: "15 days",
         },
       ],
       details: [
@@ -637,7 +637,7 @@ const Academy = () => {
                 >
                   <div className="text-left">
                     <div className="font-bold">Beginner</div>
-                    <div className="text-sm opacity-75">11.5 Months</div>
+                    <div className="text-sm opacity-75">4 Months</div>
                   </div>
                 </button>
                 <button
@@ -650,7 +650,7 @@ const Academy = () => {
                 >
                   <div className="text-left">
                     <div className="font-bold">Intermediate</div>
-                    <div className="text-sm opacity-75">11.5 Months</div>
+                    <div className="text-sm opacity-75">4 Months</div>
                   </div>
                 </button>
                 <button
@@ -663,7 +663,7 @@ const Academy = () => {
                 >
                   <div className="text-left">
                     <div className="font-bold">Advanced</div>
-                    <div className="text-sm opacity-75">9.5 Months</div>
+                    <div className="text-sm opacity-75">4 Months</div>
                   </div>
                 </button>
               </div>
