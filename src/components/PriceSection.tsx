@@ -8,10 +8,10 @@ const PricingSection = () => {
 
   const prices: Record<Currency, { title: string; price: string; icons: string[] }[]> = {
     INR: [
-      {
-        title: 'Full Stack Web Development',
-        price: '₹30,000',
-        icons: ['HTML', 'CSS', 'JS', 'React', 'Node', 'Redis', 'Mongo'],
+       {
+        title: '15-Day Internship Program',
+        price: '₹3,000',
+        icons: ['HTML', 'CSS', 'JS', 'Php', 'Mongo'],
       },
       {
         title: 'Front End Web Development',
@@ -24,16 +24,16 @@ const PricingSection = () => {
         icons: ['Node', 'Express', 'Redis', 'Mongo'],
       },
       {
-        title: '15-Day Internship Program',
-        price: '₹3,000',
-        icons: ['HTML', 'CSS', 'JS', 'Php', 'Mongo'],
+        title: 'Full Stack Web Development',
+        price: '₹30,000',
+        icons: ['HTML', 'CSS', 'JS', 'React', 'Node', 'Redis', 'Mongo'],
       },
     ],
     USD: [
-      {
-        title: 'Full Stack Web Development',
-        price: '$342',
-        icons: ['HTML', 'CSS', 'JS', 'React', 'Node', 'Redis', 'Mongo'],
+        {
+        title: '15-Day Internship Program',
+        price: '$34',
+        icons: ['HTML', 'CSS', 'JS', 'Php', 'Mongo'],
       },
       {
         title: 'Front End Web Development',
@@ -45,10 +45,10 @@ const PricingSection = () => {
         price: '$285',
         icons: ['Node', 'Express', 'Redis', 'Mongo'],
       },
-      {
-        title: '15-Day Internship Program',
-        price: '$57',
-        icons: ['HTML', 'CSS', 'JS', 'Php', 'Mongo'],
+       {
+        title: 'Full Stack Web Development',
+        price: '$342',
+        icons: ['HTML', 'CSS', 'JS', 'React', 'Node', 'Redis', 'Mongo'],
       },
     ],
   };
@@ -120,7 +120,7 @@ const PricingSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             choose a learning track
           </h3>
-          <p className="text-gray-600 text-lg">starting at {prices[currency][3].price}</p>
+          <p className="text-gray-600 text-lg">starting at {prices[currency][0].price}</p>
           <div className="w-24 h-1 bg-yellow-600 mx-auto mt-4"></div>
         </div>
 
