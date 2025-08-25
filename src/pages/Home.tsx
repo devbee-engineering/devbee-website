@@ -4,6 +4,7 @@ import { ArrowRight, Code, Smartphone, Cloud, Package } from 'lucide-react';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 
 const Home = () => {
+  
   const services = [
     {
       icon: <Code className="w-8 h-8 text-yellow-600" />,

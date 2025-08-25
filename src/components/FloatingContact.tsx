@@ -16,8 +16,7 @@ const FloatingContact = () => {
   };
 
   const handleCall = () => {
-    // Replace with your phone number
-    window.open('tel:+919003095635');
+    window.open("https://your-uni-path.3cx.in/mubasirmr", "_blank");
   };
 
   return (
