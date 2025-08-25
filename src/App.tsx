@@ -101,6 +101,13 @@ function App() {
     const timer = setTimeout(() => setLoading(false), 2100);
     return () => clearTimeout(timer);
   }, []);
+  useEffect(() => {
+    const s = document.createElement("script");
+    s.src = "https://your-uni-path.3cx.in/livechat/js/chat.js";
+    s.async = true;
+    document.body.appendChild(s);
+    return () => { document.body.removeChild(s); };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
