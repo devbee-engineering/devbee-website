@@ -2,32 +2,32 @@ import {  Target, Eye, Award, CheckCircle } from 'lucide-react';
 import ScrollFadeIn from '../components/ScrollFadeIn';
 
 const About = () => {
-  const team = [
-    {
-      name: 'Abuthair Mohammed Rafiq',
-      role: 'CEO & Founder',
-      image: '/abpfp.png',
-      description: 'Visionary leader with 15+ years in software development and business strategy.'
-    },
-    {
-      name: 'Fasil Marshooq',
-      role: 'Co-Founder & COO',
-      image: '/fasil.webp',
-      description: 'Technical expert specializing in AI, cloud architecture, and scalable systems.'
-    },
-    {
-      name: 'Musthak Ahamed',
-      role: 'Lead Developer',
-      image: '/mus.png',
-      description: 'Full-stack developer with expertise in modern web and mobile technologies.'
-    },
-    // {
-    //   name: 'Thowfeeq ahmad',
-    //   role: 'UI/UX Designer',
-    //   image: '/devbee/pfp.webp',
-    //   description: 'Creative designer focused on user-centered design and digital experiences.'
-    // }
-  ];
+  // const team = [
+  //   {
+  //     name: 'Abuthair Mohammed Rafiq',
+  //     role: 'CEO & Founder',
+  //     image: '/abpfp.png',
+  //     description: 'Visionary leader with 15+ years in software development and business strategy.'
+  //   },
+  //   {
+  //     name: 'Fasil Marshooq',
+  //     role: 'Co-Founder & COO',
+  //     image: '/fasil.webp',
+  //     description: 'Technical expert specializing in AI, cloud architecture, and scalable systems.'
+  //   },
+  //   {
+  //     name: 'Musthak Ahamed',
+  //     role: 'Lead Developer',
+  //     image: '/mus.png',
+  //     description: 'Full-stack developer with expertise in modern web and mobile technologies.'
+  //   },
+  //   // {
+  //   //   name: 'Thowfeeq ahmad',
+  //   //   role: 'UI/UX Designer',
+  //   //   image: '/devbee/pfp.webp',
+  //   //   description: 'Creative designer focused on user-centered design and digital experiences.'
+  //   // }
+  // ];
 
   const whyChooseUs = [
     'Customer-first, always.',
@@ -127,8 +127,9 @@ const About = () => {
           </div>
         </section>
       </ScrollFadeIn>
-      <ScrollFadeIn>
-        {/* Team Section */}
+       {/* Team Section */}
+      {/* <ScrollFadeIn>
+       
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -154,7 +155,7 @@ const About = () => {
             </div>
           </div>
         </section>
-      </ScrollFadeIn>
+      </ScrollFadeIn> */}
       <ScrollFadeIn>
         {/* Why Choose Us Section */}
         <section className="py-16 bg-yellow-50">
